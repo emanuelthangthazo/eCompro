@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionHub - Premium Fashion Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1><i class="fas fa-crown"></i> FashionHub</h1>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#products" class="nav-link">Products</a></li>
+                        <li><a href="#cart" class="nav-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a></li>
+                        <li><a href="#orders" class="nav-link">My Orders</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products..." id="searchInput">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <button class="user-btn" id="userBtn">
+                        <i class="fas fa-user"></i>
+                        <span>Sign In</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Promotional Banner -->
+        <div class="promo-banner">
+            <p><i class="fas fa-tag"></i> 🎉 Special Offer: Get 30% OFF on all items! Use code: FASHION30</p>
+        </div>
+    </header>
+
+    <!-- Hero Carousel -->
+    <section class="hero-carousel" id="home">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <div class="slide-content">
+                    <h2>Summer Collection 2024</h2>
+                    <p>Discover the latest trends in summer fashion with our exclusive collection</p>
+                    <button class="cta-button" onclick="scrollToProducts()">Shop Now</button>
+                </div>
+                <div class="slide-image">
+                    <img src="https://picsum.photos/seed/indian-summer-dress-collection/600/400" alt="Summer Collection">
+                </div>
+            </div>
+            
+            <div class="carousel-slide">
+                <div class="slide-content">
+                    <h2>Premium Quality Dresses</h2>
+                    <p>Elegant designs crafted with the finest materials for your special occasions</p>
+                    <button class="cta-button" onclick="scrollToProducts()">Buy Now</button>
+                </div>
+                <div class="slide-image">
+                    <img src="https://picsum.photos/seed/indian-ethnic-dresses-designer/600/400" alt="Premium Dresses">
+                </div>
+            </div>
+            
+            <div class="carousel-slide">
+                <div class="slide-content">
+                    <h2>Flash Sale - 50% OFF</h2>
+                    <p>Limited time offer on selected items. Hurry while stocks last!</p>
+                    <button class="cta-button" onclick="scrollToProducts()">Order Now</button>
+                </div>
+                <div class="slide-image">
+                    <img src="https://picsum.photos/seed/indian-fashion-flash-sale/600/400" alt="Flash Sale">
+                </div>
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next-btn" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="carousel-indicators">
+                <span class="indicator active" onclick="goToSlide(0)"></span>
+                <span class="indicator" onclick="goToSlide(1)"></span>
+                <span class="indicator" onclick="goToSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.xq6SSNRuJ8cuYUcqOkDAbwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Women's Fashion">
+                    <h3>Women's Fashion</h3>
+                    <p>Latest trends for women</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://assets.vogue.com/photos/649090719a401f430c2a1f1b/master/w_1600,c_limit/milan_mens_ss24_street_style_acielle_day4_010.jpg" alt="Men's Fashion">
+                    <h3>Men's Fashion</h3>
+                    <p>Stylish men's collection</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://picsum.photos/seed/indian-fashion-accessories-jewelry/200/150" alt="Accessories">
+                    <h3>Accessories</h3>
+                    <p>Complete your look</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://picsum.photos/seed/indian-footwear-juttis-shoes/200/150" alt="Footwear">
+                    <h3>Footwear</h3>
+                    <p>Step in style</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section class="special-offers">
+        <div class="container">
+            <h2 class="section-title">Special Offers</h2>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-badge">25% OFF</div>
+                    <h3>Weekend Special</h3>
+                    <p>Get 25% off on all casual wear this weekend</p>
+                    <button class="offer-btn">Shop Now</button>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-badge">FREE SHIPPING</div>
+                    <h3>Free Delivery</h3>
+                    <p>Free shipping on orders above $50</p>
+                    <button class="offer-btn">Learn More</button>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-badge">NEW ARRIVAL</div>
+                    <h3>New Collection</h3>
+                    <p>Check out our latest arrivals</p>
+                    <button class="offer-btn">Explore</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total: ₹<span id="cartTotal">0</span></span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to get exclusive offers and new product updates</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3><i class="fas fa-crown"></i> FashionHub</h3>
+                        <p>Your premium destination for fashion and style. We offer the latest trends with quality assurance.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#shipping">Shipping Info</a></li>
+                        <li><a href="#returns">Returns</a></li>
+                        <li><a href="#size-guide">Size Guide</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@fashionhub.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, NY 10001</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 FashionHub. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
