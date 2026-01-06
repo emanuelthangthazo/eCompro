@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FashionHub - Premium Fashion Store</title>
+    <title>BizzareFashion - Premium Fashion Store</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +14,7 @@
         <div class="container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <h1><i class="fas fa-crown"></i> FashionHub</h1>
+                    <h1><i class="fas fa-crown"></i> BizzareFashion</h1>
                 </div>
                 
                 <nav class="main-nav">
@@ -33,10 +34,36 @@
                         <input type="text" placeholder="Search products..." id="searchInput">
                         <button class="search-btn"><i class="fas fa-search"></i></button>
                     </div>
+                    <div class="user-menu">
                     <button class="user-btn" id="userBtn">
                         <i class="fas fa-user"></i>
-                        <span>Sign In</span>
+                        <span id="userBtnText">Sign In</span>
                     </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown-header">
+                            <div class="user-name" id="userName">Guest User</div>
+                            <div class="user-email" id="userEmail">Not logged in</div>
+                        </div>
+                        <div class="user-dropdown-menu">
+                            <button class="user-dropdown-item" onclick="showProfile()">
+                                <i class="fas fa-user"></i> My Profile
+                            </button>
+                            <button class="user-dropdown-item" onclick="showOrders()">
+                                <i class="fas fa-shopping-bag"></i> My Orders
+                            </button>
+                            <button class="user-dropdown-item" onclick="showWishlist()">
+                                <i class="fas fa-heart"></i> Wishlist
+                            </button>
+                            <button class="user-dropdown-item" onclick="showSettings()">
+                                <i class="fas fa-cog"></i> Settings
+                            </button>
+                            <div class="user-dropdown-divider"></div>
+                            <button class="user-dropdown-item logout" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i> Sign Out
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -57,7 +84,7 @@
                     <button class="cta-button" onclick="scrollToProducts()">Shop Now</button>
                 </div>
                 <div class="slide-image">
-                    <img src="https://picsum.photos/seed/indian-summer-dress-collection/600/400" alt="Summer Collection">
+                    <img src="https://i.ytimg.com/vi/PTXI3aJR7jA/maxresdefault.jpg" alt="Summer Collection">
                 </div>
             </div>
             
@@ -68,7 +95,7 @@
                     <button class="cta-button" onclick="scrollToProducts()">Buy Now</button>
                 </div>
                 <div class="slide-image">
-                    <img src="https://picsum.photos/seed/indian-ethnic-dresses-designer/600/400" alt="Premium Dresses">
+                    <img src="https://static3.azafashions.com/tr:w-450/uploads/product_gallery/1713975377196_1.jpg" alt="Premium Dresses">
                 </div>
             </div>
             
@@ -79,7 +106,7 @@
                     <button class="cta-button" onclick="scrollToProducts()">Order Now</button>
                 </div>
                 <div class="slide-image">
-                    <img src="https://picsum.photos/seed/indian-fashion-flash-sale/600/400" alt="Flash Sale">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop" alt="Flash Sale">
                 </div>
             </div>
             
@@ -111,17 +138,17 @@
                     <p>Latest trends for women</p>
                 </div>
                 <div class="category-card">
-                    <img src="https://assets.vogue.com/photos/649090719a401f430c2a1f1b/master/w_1600,c_limit/milan_mens_ss24_street_style_acielle_day4_010.jpg" alt="Men's Fashion">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.SZtMoiQYcmu_LaDLp9W7JAHaHa?w=218&h=218&c=7&o=5&pid=1.20" alt="Men's Fashion">
                     <h3>Men's Fashion</h3>
                     <p>Stylish men's collection</p>
                 </div>
                 <div class="category-card">
-                    <img src="https://picsum.photos/seed/indian-fashion-accessories-jewelry/200/150" alt="Accessories">
+                    <img src="https://media.gqindia.com/wp-content/uploads/2015/11/gq-mens-accessories-2015-1.jpg" alt="Accessories">
                     <h3>Accessories</h3>
                     <p>Complete your look</p>
                 </div>
                 <div class="category-card">
-                    <img src="https://picsum.photos/seed/indian-footwear-juttis-shoes/200/150" alt="Footwear">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.hms1kXUPkNeVoQIOpiAi0wHaJQ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Footwear">
                     <h3>Footwear</h3>
                     <p>Step in style</p>
                 </div>
@@ -205,7 +232,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <h3><i class="fas fa-crown"></i> FashionHub</h3>
+                        <h3><i class="fas fa-crown"></i> BizzareFashion</h3>
                         <p>Your premium destination for fashion and style. We offer the latest trends with quality assurance.</p>
                     </div>
                     <div class="social-links">
@@ -240,18 +267,144 @@
                     <h4>Contact Info</h4>
                     <div class="contact-info">
                         <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                        <p><i class="fas fa-envelope"></i> info@fashionhub.com</p>
+                        <p><i class="fas fa-envelope"></i> info@bizzarefashion.com</p>
                         <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, NY 10001</p>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 FashionHub. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>&copy; 2024 BizzareFashion. All rights reserved. | Privacy Policy | Terms of Service</p>
             </div>
         </div>
     </footer>
 
+    <!-- Authentication Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <button class="auth-close" onclick="closeAuthModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="auth-header">
+                <h2>Welcome to BizzareFashion</h2>
+                <p>Sign in to access your account and enjoy exclusive benefits</p>
+            </div>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('signin')">Sign In</button>
+                <button class="auth-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+            </div>
+            
+            <!-- Sign In Form -->
+            <form class="auth-form" id="signinForm">
+                <div class="form-group">
+                    <label for="signinEmail">Email Address</label>
+                    <input type="email" id="signinEmail" name="email" required>
+                    <span class="error-message" id="signinEmailError">Please enter a valid email</span>
+                </div>
+                
+                <div class="form-group password-toggle">
+                    <label for="signinPassword">Password</label>
+                    <input type="password" id="signinPassword" name="password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('signinPassword')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <span class="error-message" id="signinPasswordError">Password is required</span>
+                </div>
+                
+                <div class="remember-forgot">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password" onclick="showForgotPassword()">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="auth-submit">Sign In</button>
+                
+                <div class="auth-divider">
+                    <span>OR</span>
+                </div>
+                
+                <div class="social-auth">
+                    <button type="button" class="social-btn google" onclick="socialSignIn('google')">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button type="button" class="social-btn facebook" onclick="socialSignIn('facebook')">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Sign Up Form -->
+            <form class="auth-form" id="signupForm" style="display: none;">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" name="name" required>
+                    <span class="error-message" id="signupNameError">Name is required</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" name="email" required>
+                    <span class="error-message" id="signupEmailError">Please enter a valid email</span>
+                </div>
+                
+                <div class="form-group password-toggle">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('signupPassword')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <span class="error-message" id="signupPasswordError">Password must be at least 6 characters</span>
+                </div>
+                
+                <div class="form-group password-toggle">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" name="confirmPassword" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('signupConfirmPassword')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <span class="error-message" id="signupConfirmPasswordError">Passwords do not match</span>
+                </div>
+                
+                <div class="remember-forgot">
+                    <label class="remember-me">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span>I agree to the Terms & Conditions</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="auth-submit">Create Account</button>
+                
+                <div class="auth-divider">
+                    <span>OR</span>
+                </div>
+                
+                <div class="social-auth">
+                    <button type="button" class="social-btn google" onclick="socialSignUp('google')">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button type="button" class="social-btn facebook" onclick="socialSignUp('facebook')">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Success Message -->
+            <div class="auth-success" id="authSuccess">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 id="successTitle">Welcome Back!</h3>
+                <p id="successMessage">You have successfully signed in to your account.</p>
+                <button onclick="closeAuthModal()">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>

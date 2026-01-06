@@ -6,7 +6,7 @@ const products = [
         description: "Light and comfortable perfect for summer occasions",
         price: 4499,
         rating: 4.5,
-        image: "https://picsum.photos/seed/summer-dress-blue-floral/300/250"
+        image: "https://th.bing.com/th/id/OIP.Ct4vouOM2aUpma7rD4H7VAHaHa?&rs=1&pid=ImgDetMain&o=7&rm=3"
     },
     {
         id: 2,
@@ -14,7 +14,7 @@ const products = [
         description: "Timeless style with modern comfort and durability",
         price: 3999,
         rating: 4.8,
-        image: "https://picsum.photos/seed/denim-jacket-blue-classic/300/250"
+        image: "https://assets.digitalcontent.marksandspencer.app/images/w_1024,q_auto,f_auto/SD_10_T18_4782_E0_X_EC_0/Classic-Denim-Jacket"
     },
     {
         id: 3,
@@ -22,7 +22,7 @@ const products = [
         description: "Premium leather handbag with elegant design",
         price: 6499,
         rating: 4.6,
-        image: "https://picsum.photos/seed/leather-handbag-brown/300/250"
+        image: "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/091544/01/mod02/fnd/IND/fmt/png/PU-Zen-Women's-Handbag"
     },
     {
         id: 4,
@@ -30,7 +30,7 @@ const products = [
         description: "Comfortable everyday sneakers with modern look",
         price: 2999,
         rating: 4.3,
-        image: "https://picsum.photos/seed/white-sneakers-casual/300/250"
+        image: "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/394371/03/fnd/IND/fmt/png/Smashic-Comfort-Casual-Sneakers"
     },
     {
         id: 5,
@@ -38,7 +38,7 @@ const products = [
         description: "Professional suit perfect for business meetings",
         price: 9999,
         rating: 4.7,
-        image: "https://picsum.photos/seed/business-suit-navy/300/250"
+        image: "https://i.pinimg.com/videos/thumbnails/originals/93/19/50/931950dbe21ea0cbb90e1dc20d0faea5.0000000.jpg"
     },
     {
         id: 6,
@@ -46,7 +46,7 @@ const products = [
         description: "UV protection with stylish designer frames",
         price: 4499,
         rating: 4.4,
-        image: "https://picsum.photos/seed/designer-sunglasses-black/300/250"
+        image: "https://www.prada.com/content/dam/pradabkg_products/S/SPR/SPR10Z/E1ABF05S0/SPR10Z_E1AB_F05S0_C_054_MDL.jpg"
     },
     {
         id: 7,
@@ -54,7 +54,7 @@ const products = [
         description: "Breathable fabric perfect for workouts",
         price: 1499,
         rating: 4.2,
-        image: "https://picsum.photos/seed/sports-tshirt-grey/300/250"
+        image: "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/5385f40efb1240518ff5af2b008fee5a_9366/Tiro_23_Club_Training_Jersey_Blue_HZ0175_02_laydown_hover.jpg"
     },
     {
         id: 8,
@@ -62,7 +62,7 @@ const products = [
         description: "Genuine leather wallet with multiple card slots",
         price: 2499,
         rating: 4.5,
-        image: "https://picsum.photos/seed/leather-wallet-black/300/250"
+        image: "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/091058/01/fnd/IND/fmt/png/Leather-Plain-Bi-Fold-Wallet"
     }
 ];
 
@@ -353,10 +353,10 @@ function setupEventListeners() {
         this.reset();
     });
     
-    // User button
-    document.getElementById('userBtn').addEventListener('click', function() {
-        showNotification('Sign in functionality would be implemented here');
-    });
+    // User button - handled by auth.js
+    // document.getElementById('userBtn').addEventListener('click', function() {
+    //     showNotification('Sign in functionality would be implemented here');
+    // });
     
     // Navigation active state
     const navLinks = document.querySelectorAll('.nav-link');
