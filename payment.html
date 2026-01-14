@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - BizzareFashion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1><i class="fas fa-crown"></i> BizzareFashion</h1>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="nav-link">
+                            <i class="fas fa-arrow-left"></i> Back to Shopping
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="payment-main">
+        <div class="container">
+            <div class="checkout-container">
+                <!-- Order Summary -->
+                <section class="order-summary">
+                    <h2><i class="fas fa-shopping-bag"></i> Order Summary</h2>
+                    <div id="cartItems" class="cart-items">
+                        <!-- Cart items will be populated here -->
+                    </div>
+                    <div class="order-totals">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">₹0</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Shipping:</span>
+                            <span id="shipping">₹0</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Tax:</span>
+                            <span id="tax">₹0</span>
+                        </div>
+                        <div class="total-row discount">
+                            <span>Discount:</span>
+                            <span id="discount">-₹0</span>
+                        </div>
+                        <div class="total-row final-total">
+                            <span>Total:</span>
+                            <span id="finalTotal">₹0</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Checkout Form -->
+                <section class="checkout-form">
+                    <form id="checkoutForm">
+                        <!-- Delivery Address -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-map-marker-alt"></i> Delivery Address</h3>
+                            <div class="address-options">
+                                <div class="address-selector">
+                                    <label>
+                                        <input type="radio" name="addressType" value="existing" checked>
+                                        Use Existing Address
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="addressType" value="new">
+                                        Add New Address
+                                    </label>
+                                </div>
+                                
+                                <div id="existingAddresses" class="existing-addresses">
+                                    <!-- Existing addresses will be populated here -->
+                                </div>
+                                
+                                <div id="newAddressForm" class="new-address-form" style="display: none;">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="fullName">Full Name *</label>
+                                            <input type="text" id="fullName" name="fullName" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Phone Number *</label>
+                                            <input type="tel" id="phone" name="phone" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="address">Street Address *</label>
+                                        <input type="text" id="address" name="address" required>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="city">City *</label>
+                                            <input type="text" id="city" name="city" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="state">State *</label>
+                                            <input type="text" id="state" name="state" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="pincode">PIN Code *</label>
+                                            <input type="text" id="pincode" name="pincode" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="country">Country *</label>
+                                            <select id="country" name="country" required>
+                                                <option value="India">India</option>
+                                                <option value="United States">United States</option>
+                                                <option value="United Kingdom">United Kingdom</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="Australia">Australia</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>
+                                            <input type="checkbox" id="saveAddress" name="saveAddress">
+                                            Save this address for future orders
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Options -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-truck"></i> Delivery Options</h3>
+                            <div class="delivery-options">
+                                <label class="delivery-option">
+                                    <input type="radio" name="delivery" value="standard" checked>
+                                    <div class="delivery-info">
+                                        <span class="delivery-name">Standard Delivery</span>
+                                        <span class="delivery-time">5-7 business days</span>
+                                        <span class="delivery-price">₹50</span>
+                                    </div>
+                                </label>
+                                <label class="delivery-option">
+                                    <input type="radio" name="delivery" value="express">
+                                    <div class="delivery-info">
+                                        <span class="delivery-name">Express Delivery</span>
+                                        <span class="delivery-time">2-3 business days</span>
+                                        <span class="delivery-price">₹150</span>
+                                    </div>
+                                </label>
+                                <label class="delivery-option">
+                                    <input type="radio" name="delivery" value="overnight">
+                                    <div class="delivery-info">
+                                        <span class="delivery-name">Overnight Delivery</span>
+                                        <span class="delivery-time">Next business day</span>
+                                        <span class="delivery-price">₹250</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Payment Methods -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                            <div class="payment-methods">
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="card" checked>
+                                    <div class="payment-info">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Credit/Debit Card</span>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="upi">
+                                    <div class="payment-info">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>UPI</span>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="netbanking">
+                                    <div class="payment-info">
+                                        <i class="fas fa-university"></i>
+                                        <span>Net Banking</span>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="wallet">
+                                    <div class="payment-info">
+                                        <i class="fas fa-wallet"></i>
+                                        <span>Wallet</span>
+                                    </div>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="cod">
+                                    <div class="payment-info">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        <span>Cash on Delivery</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Card Payment Form -->
+                            <div id="cardPayment" class="payment-form">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number *</label>
+                                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                    <div class="card-icons">
+                                        <i class="fab fa-cc-visa"></i>
+                                        <i class="fab fa-cc-mastercard"></i>
+                                        <i class="fab fa-cc-amex"></i>
+                                        <i class="fab fa-cc-discover"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cardName">Cardholder Name *</label>
+                                        <input type="text" id="cardName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardExpiry">Expiry Date *</label>
+                                        <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="cardCVV">CVV *</label>
+                                    <input type="text" id="cardCVV" placeholder="123" maxlength="4" required>
+                                    <div class="cvv-hint">
+                                        <i class="fas fa-question-circle"></i>
+                                        <span>3-digit code on back of card</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- UPI Payment Form -->
+                            <div id="upiPayment" class="payment-form" style="display: none;">
+                                <div class="form-group">
+                                    <label for="upiId">UPI ID *</label>
+                                    <input type="text" id="upiId" placeholder="yourname@upi" required>
+                                </div>
+                                <div class="upi-apps">
+                                    <button type="button" class="upi-app">
+                                        <i class="fas fa-mobile-alt"></i> PhonePe
+                                    </button>
+                                    <button type="button" class="upi-app">
+                                        <i class="fas fa-mobile-alt"></i> Google Pay
+                                    </button>
+                                    <button type="button" class="upi-app">
+                                        <i class="fas fa-mobile-alt"></i> Paytm
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Net Banking Form -->
+                            <div id="netbankingPayment" class="payment-form" style="display: none;">
+                                <div class="form-group">
+                                    <label for="bankSelect">Select Bank *</label>
+                                    <select id="bankSelect" required>
+                                        <option value="">Choose your bank</option>
+                                        <option value="sbi">State Bank of India</option>
+                                        <option value="hdfc">HDFC Bank</option>
+                                        <option value="icici">ICICI Bank</option>
+                                        <option value="pnb">Punjab National Bank</option>
+                                        <option value="axis">Axis Bank</option>
+                                        <option value="kotak">Kotak Mahindra Bank</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Wallet Payment Form -->
+                            <div id="walletPayment" class="payment-form" style="display: none;">
+                                <div class="form-group">
+                                    <label for="walletSelect">Select Wallet *</label>
+                                    <select id="walletSelect" required>
+                                        <option value="">Choose your wallet</option>
+                                        <option value="paytm">Paytm Wallet</option>
+                                        <option value="phonepe">PhonePe Wallet</option>
+                                        <option value="amazon">Amazon Pay</option>
+                                        <option value="mobikwik">MobiKwik</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- COD Payment Form -->
+                            <div id="codPayment" class="payment-form" style="display: none;">
+                                <div class="cod-info">
+                                    <i class="fas fa-info-circle"></i>
+                                    <p>Cash on Delivery is available for orders up to ₹10,000</p>
+                                    <p>Please keep exact change ready</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Notes -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-sticky-note"></i> Order Notes</h3>
+                            <div class="form-group">
+                                <textarea id="orderNotes" rows="3" placeholder="Special instructions for delivery..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="terms" required>
+                                    I agree to the <a href="#" class="terms-link">Terms and Conditions</a> and <a href="#" class="terms-link">Privacy Policy</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-actions">
+                            <button type="submit" class="place-order-btn">
+                                <i class="fas fa-lock"></i> Place Secure Order
+                            </button>
+                            <div class="security-info">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Your payment information is secure and encrypted</span>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Your order has been placed successfully. You will receive a confirmation email shortly.</p>
+            <div class="order-details">
+                <p><strong>Order ID:</strong> <span id="orderId"></span></p>
+                <p><strong>Estimated Delivery:</strong> <span id="deliveryDate"></span></p>
+            </div>
+            <button onclick="viewOrderDetails()" class="view-order-btn">View Order Details</button>
+            <button onclick="continueShopping()" class="continue-shopping-btn">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="js/payment.js"></script>
+</body>
+</html>

@@ -167,7 +167,7 @@ function addToCart(productId) {
 // Buy now functionality
 function buyNow(productId) {
     addToCart(productId);
-    toggleCart();
+    window.location.href = 'payment.html';
 }
 
 // Toggle wishlist
@@ -257,7 +257,10 @@ function removeFromCart(productId) {
 // Toggle cart sidebar
 function toggleCart() {
     const cartSidebar = document.getElementById('cartSidebar');
+    const cartBackdrop = document.getElementById('cartBackdrop');
+    
     cartSidebar.classList.toggle('open');
+    cartBackdrop.classList.toggle('active');
 }
 
 // Carousel functionality
@@ -385,6 +388,12 @@ function setupEventListeners() {
         });
     });
     
+    // Orders link - redirect to orders page
+    document.querySelector('a[href="orders.html"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'orders.html';
+    });
+    
     // Offer buttons
     document.querySelectorAll('.offer-btn').forEach(btn => {
         btn.addEventListener('click', function() {
@@ -398,8 +407,7 @@ function setupEventListeners() {
             showNotification('Your cart is empty');
             return;
         }
-        showNotification('Proceeding to checkout...');
-        // In a real application, this would navigate to checkout page
+        window.location.href = 'payment.html';
     });
 }
 

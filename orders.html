@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - BizzareFashion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/orders.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1><i class="fas fa-crown"></i> BizzareFashion</h1>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="nav-link">
+                            <i class="fas fa-arrow-left"></i> Back to Shopping
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="orders-main">
+        <div class="container">
+            <div class="orders-header">
+                <h2><i class="fas fa-shopping-bag"></i> My Orders</h2>
+                <div class="orders-filters">
+                    <select id="orderFilter">
+                        <option value="all">All Orders</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="processing">Processing</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                    <input type="text" id="orderSearch" placeholder="Search by order ID...">
+                </div>
+            </div>
+
+            <div id="ordersList" class="orders-list">
+                <!-- Orders will be populated here -->
+            </div>
+
+            <div id="emptyOrders" class="empty-orders" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h3>No Orders Found</h3>
+                <p>You haven't placed any orders yet. Start shopping to see your orders here!</p>
+                <a href="index.html" class="shop-now-btn">Shop Now</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Details Modal -->
+    <div id="orderModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content order-modal">
+            <div class="modal-header">
+                <h3>Order Details</h3>
+                <button class="close-modal" onclick="closeOrderModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="orderDetails" class="order-details">
+                <!-- Order details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/orders.js"></script>
+</body>
+</html>
