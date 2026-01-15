@@ -1,4 +1,4 @@
-# FashionHub - Premium Fashion E-Commerce Website
+# BizzareFashion - Premium Fashion E-Commerce Website
 
 A modern, responsive fashion e-commerce website built with HTML, CSS, and JavaScript. This project showcases a complete online shopping experience with professional design and full functionality.
 
